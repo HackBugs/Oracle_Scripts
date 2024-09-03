@@ -1,0 +1,49 @@
+--
+--
+--
+--
+--create table employees (
+--employees_id NUMBER PRIMARY KEY,
+--first_name VARCHAR2 (50),
+--last_name VARCHAR2 (50),
+--email VARCHAR2 (100),
+--phone_number VARCHAR2 (20),
+--hire_date DATE,
+--jon_id number (10),
+--salary number (10),
+--manager_id number(10),
+--department_id
+--);
+--
+--ALTER table employees ADD (PASSWORD VARCHAR2 (10)),
+--
+--insert data used this AI - https://gemini.google.com/app/d60bacc1309f666d
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (1, 'Shahanwaj', 'Aalam', 'shahanwaj@example.com', '+911234567890', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'IT_PROG', 45000.00, 100, 20);
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (2, 'Firoj', 'Khan', 'firoj@example.com', '+919876543210', TO_DATE('2022-06-15', 'YYYY-MM-DD'), 'SALES', 50000.00, 100, 30);
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (3, 'Syed', 'Salim', 'syed@example.com', '+918523147690', TO_DATE('2024-03-12', 'YYYY-MM-DD'), 'HR', 40000.00, 101, 20);
+--
+--
+--
+--inset data used chatgpt but not worked this is code 
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES
+--    (1, 'Shahnwaj', 'Aalam', 'shahnwaj@example.com', '123-456-7890', TO_DATE('2024-05-26', 'YYYY-MM-DD'), 'JR001', 50000.00, NULL, 100),
+--    (2, 'Firoj', 'Khan', 'firoj@example.com', '987-654-3210', TO_DATE('2024-05-27', 'YYYY-MM-DD'), 'JR002', 55000.00, 1, 100),
+--    (3, 'Syed', 'Salim', 'salim@example.com', '555-555-5555', TO_DATE('2024-05-28', 'YYYY-MM-DD'), 'JR003', 60000.00
+--	
+--	
+--	
+--INSERT INTO "SYS"."EMPLOYEES" (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, MANAGER_ID, DEPARTMENT_ID) VALUES ('4', 'Arif', 'khan', 'arif12@gmail.com', '+9121347865', TO_DATE('2024-06-23 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'DBA', '50000', '201', '21')
+--
+--Commit Successful
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (1, 'Shahanwaj', 'Aalam', 'shahanwaj@example.com', '+911234567890', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'IT_PROG', 45000.00, 100, 20);
+--

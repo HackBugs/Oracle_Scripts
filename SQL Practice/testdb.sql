@@ -1,0 +1,281 @@
+--CREATE TABLE employees (
+--    employee_id NUMBER PRIMARY KEY,
+--    first_name VARCHAR2(50),
+--    last_name VARCHAR2(50),
+--    email VARCHAR2(100),
+--    phone_number VARCHAR2(20),
+--    hire_date DATE,
+--    job_id VARCHAR2(10),
+--    salary NUMBER(8, 2),
+--    manager_id NUMBER,
+--    department_id NUMBER
+--);
+
+--select * from employees;
+
+--if only i created a table ther have not data than use this code to isert data in table
+--ALTER TABLE employees ADD (employee_id NUMBER PRIMARY KEY);
+--ALTER TABLE employees ADD (first_name VARCHAR2(50));
+--ALTER TABLE employees ADD (last_name VARCHAR2(50));
+--ALTER TABLE employees ADD (email VARCHAR2(100));
+--ALTER TABLE employees ADD (phone_number VARCHAR2(20));
+--ALTER TABLE employees ADD (hire_date DATE);
+--ALTER TABLE employees ADD (job_id VARCHAR2(10));
+--ALTER TABLE employees ADD (salary NUMBER(8, 2));
+--ALTER TABLE employees ADD (manager_id NUMBER);
+--ALTER TABLE employees ADD (department_id NUMBER);
+--ALTER TABLE employees ADD (password VARCHAR2(50));
+
+
+--insert data used this AI - https://gemini.google.com/app/d60bacc1309f666d
+
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (1, 'Shahanwaj', 'Aalam', 'shahanwaj@example.com', '+911234567890', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 'IT_PROG', 45000.00, 100, 20);
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (2, 'Firoj', 'Khan', 'firoj@example.com', '+919876543210', TO_DATE('2022-06-15', 'YYYY-MM-DD'), 'SALES', 50000.00, 100, 30);
+--
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES (3, 'Syed', 'Salim', 'syed@example.com', '+918523147690', TO_DATE('2024-03-12', 'YYYY-MM-DD'), 'HR', 40000.00, 101, 20);
+
+--update cmd use
+
+--UPDATE employees
+--SET phone_number = '+9161664204'
+--WHERE first_name = 'Shahnawaj' AND last_name = 'Aalam' AND phone_number = '+911234567890';
+
+
+--inset data used chatgpt but not worked this is code 
+
+--INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, manager_id, department_id)
+--VALUES
+--    (1, 'Shahnwaj', 'Aalam', 'shahnwaj@example.com', '123-456-7890', TO_DATE('2024-05-26', 'YYYY-MM-DD'), 'JR001', 50000.00, NULL, 100),
+--    (2, 'Firoj', 'Khan', 'firoj@example.com', '987-654-3210', TO_DATE('2024-05-27', 'YYYY-MM-DD'), 'JR002', 55000.00, 1, 100),
+--    (3, 'Syed', 'Salim', 'salim@example.com', '555-555-5555', TO_DATE('2024-05-28', 'YYYY-MM-DD'), 'JR003', 60000.00, 2, 200);
+
+
+--for example to know how to create table 
+--CREATE TABLE employees (
+--    employee_id NUMBER PRIMARY KEY,                  -- Numeric primary key
+--    first_name VARCHAR2(50),                         -- Variable-length string for first names
+--    middle_initial CHAR(1),                          -- Fixed-length string for middle initial
+--    last_name VARCHAR2(50),                          -- Variable-length string for last names
+--    email VARCHAR2(100) UNIQUE NOT NULL,             -- Unique and not null string for email addresses
+--    phone_number VARCHAR2(20),                       -- Variable-length string for phone numbers
+--    age INTEGER,                                     -- Integer for age
+--    hire_date DATE DEFAULT SYSDATE,                  -- Date with default value
+--    job_id VARCHAR2(10) NOT NULL,                    -- Variable-length string for job identifiers
+--    salary NUMBER(8, 2) CHECK (salary > 0),          -- Numeric with check constraint
+--    profile_picture BLOB,                            -- Binary large object for profile pictures
+--    article_content CLOB,                            -- CLOB for storing article content
+--    last_updated TIMESTAMP,                          -- Timestamp for when the record was last updated
+--    latitude FLOAT,                                  -- Float for geographical latitude
+--    FOREIGN KEY (job_id) REFERENCES jobs(job_id)     -- Foreign key constraint
+--);
+------------------------------------------------------------------------------------------------
+-- chat GPT help -
+-- oracle help - 
+--desc dba_tables;
+--select table_name from dba_tables;
+--select * from employee;
+--
+--desc v$database;
+--SELECT * FROM v$diag_info WHERE name = 'Diag Trace';
+--SELECT directory_name, directory_path FROM dba_directories;
+---------------------------------------------------------------------
+--show pdbs;
+--SELECT CDB FROM V$DATABASE;
+--SELECT pdb_name, status FROM dba_pdbs;
+--
+--ALTER PLUGGABLE DATABASE pdb_name OPEN;
+--
+--ALTER SESSION SET CONTAINER = PDB$SEED;
+--ALTER PLUGGABLE DATABASE PDB$SEED CLOSE IMMEDIATE;
+--ALTER PLUGGABLE DATABASE PDB$SEED OPEN READ WRITE;
+--ALTER SESSION SET CONTAINER = PDB$SEED;
+--
+--
+--SELECT FILE_NAME, TABLESPACE_NAME FROM DBA_DATA_FILES;
+--SELECT FILE_NAME, TABLESPACE_NAME FROM DBA_TEMP_FILES;
+--SELECT PDB_ID, PDB_NAME, FILE_NAME_CONVERT FROM DBA_PDBS;
+----------------------------------------------------------------
+---- Create the tabelscpece_name and datafile and define size
+--SELECT tablespace_name FROM dba_tablespaces;
+--
+--CREATE TABLESPACE users3 
+--DATAFILE 'users03.dbf' 
+--SIZE 100M 
+--AUTOEXTEND ON 
+--NEXT 10M 
+--MAXSIZE UNLIMITED;
+--
+--SELECT file_name, tablespace_name
+--FROM dba_data_files
+--WHERE tablespace_name = 'USERS2';
+-----------------------------------------------
+---- Create the user with provided parameters
+--CREATE USER new_schema2 IDENTIFIED BY password
+--DEFAULT TABLESPACE users
+--TEMPORARY TABLESPACE temp
+--QUOTA UNLIMITED ON users;
+-----------------------------------------------------------------------------
+---- Give the grand and PRIVILEGES of user base on role an resposbilities
+--GRANT CONNECT, RESOURCE TO new_schema;
+--GRANT CREATE TABLE TO new_schema;
+--GRANT CREATE VIEW TO new_schema;
+--GRANT CREATE PROCEDURE TO new_schema;
+--GRANT CREATE SEQUENCE TO new_schema;
+--
+--GRANT CONNECT, RESOURCE, CREATE SESSION, CREATE TABLE, CREATE VIEW, CREATE PROCEDURE, CREATE SEQUENCE TO new_schema;
+--
+--GRANT ALL PRIVILEGES TO new_schema;
+--GRANT DBA TO new_schema;
+--REVOKE ALL PRIVILEGES FROM new_schema;
+--
+--FROM dba_sys_privs
+--FROM dba_tab_privs
+--FROM dba_role_privs
+--FROM dba_users;
+--
+--SELECT grantee, privilege 
+--FROM dba_sys_privs 
+--WHERE grantee = 'USERNAME';
+--
+--SELECT * FROM DBA_SYS_PRIVS;
+--SELECT * FROM DBA_TAB_PRIVS;
+--SELECT * FROM DBA_ROLE_PRIVS;
+--
+--SELECT * FROM dba_ts_quotas WHERE username = 'new_schema';
+--
+--SELECT grantee, owner, table_name, privilege 
+--FROM dba_tab_privs 
+--WHERE grantee = 'new_schema';
+--
+--SELECT grantee, privilege 
+--FROM dba_sys_privs;
+--
+--SELECT username, default_tablespace, temporary_tablespace
+--FROM dba_users
+--WHERE username = 'NEW_SCHEMA1';
+--
+--SELECT username FROM dba_users WHERE username = 'NEW_SCHEMA'; 
+---------------------------------------------------------------
+--ALTER SESSION SET CONTAINER = PDB$SEED;
+--
+--GRANT CREATE TABLE TO new_schema;
+--ALTER USER new_schema QUOTA UNLIMITED ON users;
+--
+--show user;
+--
+--------------------------------------------------
+--SELECT name, open_mode FROM v$database;
+--
+--CREATE DATABASE CDB1
+--USER SYS IDENTIFIED BY oracle
+--USER SYSTEM IDENTIFIED BY oracle
+--ENABLE PLUGGABLE DATABASE;
+--
+--SELECT name, open_mode FROM v$database;
+--select name,CON_ID,open_mode from v$pdbs;
+--desc v$pdbs;
+--show pdbs;
+--show user;
+--desc v$tablespace;
+--
+--Datafiles
+-----------------
+--SELECT tablespace_name, file_name
+--FROM dba_data_files;
+--
+--tablespaces
+----------------
+--SELECT tablespace_name, status, contents, logging, block_size
+--FROM dba_tablespaces;
+--
+--SELECT file#, name, status
+--FROM v$datafile;
+--
+----------------------------------------------------------
+--find all important loaction of oracle database
+---------------------------------------------------------
+---- Connect to the database as SYSDBA
+--sqlplus sys as sysdba
+--
+---- Find control file locations
+--SELECT name FROM v$controlfile;
+--
+---- Find redo log file locations
+--SELECT member FROM v$logfile;
+--
+---- Find all tablespaces
+--SELECT tablespace_name FROM dba_tablespaces;
+--
+---- Find datafile locations for tablespaces
+--SELECT tablespace_name, file_name FROM dba_data_files;
+--
+---- Find temporary tablespace file locations
+--SELECT tablespace_name, file_name FROM dba_temp_files;
+--
+---- Find archive log file locations
+--SELECT name FROM v$archived_log;
+--
+---- Find shared pool and other SGA information
+--SELECT * FROM v$sga;
+--
+-----------------------------------------------
+---- Connect to the database as SYSDBA
+--sqlplus sys as sysdba
+--
+---- Get information about the shared pool
+--SELECT * FROM v$sgastat WHERE pool = 'shared pool';
+--
+---- Get information about the Java pool
+--SELECT * FROM v$sgastat WHERE pool = 'java pool';
+--
+---- Get information about the large pool
+--SELECT * FROM v$sgastat WHERE pool = 'large pool';
+--
+---- Get information about the streams pool
+--SELECT * FROM v$sgastat WHERE pool = 'streams pool';
+--
+---- Get overall SGA information
+--SELECT * FROM v$sga;
+--
+---- Get detailed SGA component information
+--SELECT * FROM v$sgainfo;
+--------------------------------------------------------
+--
+--select * from v$sgastat where pool ='java pool';
+----------------------------------------------------------
+--
+--SELECT status FROM v$instance;
+--shutdown immediate;
+--startup mount;
+--ALTER PLUGGABLE DATABASE pdb_name OPEN;
+--
+--
+--@ C:\Oracle\WINDOWS.X64_193000_db_home\rdbms\xml\schema\db-sample-schemas-21.1\human_resources\hr_main.sql
+--
+---- PDBS conncet and conncet wtih schema means users;
+--
+--# Connect to the CDB as SYSDBA
+--sqlplus sys as sysdba
+--
+--# Switch to the PDB `pdbtest`
+--ALTER SESSION SET CONTAINER = pdbtest;
+--
+--# Change the password for the user `hr`
+--ALTER USER hr IDENTIFIED BY new_password;
+--
+--# Verify the password change by connecting as `hr` with the new password
+--CONNECT hr/new_password@pdbtest;
+==============================================================================================
+
+
+
+
+
+
+
+
+
