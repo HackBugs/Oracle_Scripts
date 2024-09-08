@@ -25,7 +25,7 @@ ORDER BY view_name;
 ```sh
 srvctl start asm
 ```
-## AWR - Report 
+> ## AWR - Report 
 
 If you've generated the AWR report with the name `awr_new_test_report.html` but are unable to find where it was saved, follow these steps to locate the file:
 
@@ -81,3 +81,32 @@ This ensures the report is saved to the correct directory, making it easier to l
 
 ### 5. **Check for Errors**
 Ensure that the report was successfully generated and that there were no errors during the execution of the `awrrpt.sql` script. If there were any issues, you may need to regenerate the report and specify the path explicitly.
+
+<hr>
+
+> ## Here's a consolidated list of the essential files and configurations needed for setting up and maintaining an Oracle standby database:
+
+-- Control File Location
+
+```sh
+SELECT 'Control File Location:' AS Description, name AS File_Location
+FROM v$controlfile;
+
+-- Data File Locations
+SELECT 'Data Files Location:' AS Description, tablespace_name, file_name
+FROM dba_data_files;
+
+-- Redo Log File Locations
+SELECT 'Redo Log Files Location:' AS Description, group# AS Log_Group, member AS Log_File
+FROM v$logfile;
+
+-- Archived Log File Locations
+SELECT 'Archived Log Files Location:' AS Description, thread#, sequence#, name AS Archived_Log_File
+FROM v$archived_log;
+
+-- Parameter File Location
+SELECT 'Parameter File Location:' AS Description, value AS Parameter_File_Location
+FROM v$parameter
+WHERE name = 'spfile';
+```
+
