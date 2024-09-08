@@ -1,5 +1,6 @@
 # Oracle_Tools
 
+- Check AWR report path and location - `find / -name "awr_new_test_report.html" 2>/dev/null`
 
 >Oracle ASM
 
