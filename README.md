@@ -275,3 +275,6 @@ If you restore the control files or recreate them, the database should be able t
 
 4. trace alart log file location </br>
 /u01/app/oracle/diag/rdbms/oradb/oradb/trace/
+
+5. Awr and all report sql script location </br>
+/u01/app/oracle/product/19.0.0/db_1/rdbms/admin/
