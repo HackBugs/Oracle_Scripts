@@ -1,5 +1,7 @@
 # Oracle_Tools
 
+> https://docs.google.com/document/d/1SyFN9sfYnXz8yWwfnjAXjbXWAatKs38Vqe2mv83zFpo/edit
+
 >Oracle ASM
 
 ```
