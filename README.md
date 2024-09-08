@@ -149,4 +149,18 @@ SELECT 'PFILE' AS File_Type, value AS File_Location
 FROM v$parameter
 WHERE name = 'pfile';
 ```
+<hr>
 
+> ## Important Location in database
+
+1. spfile location </br>
+/u01/app/oracle/product/19.0.0/db_1/dbs/
+       
+2. ctl first file location location	</br>
+/u01/app/oracle/oradata/ORADB/control01.ctl
+
+2. FRA ctl Second file location location </br>
+/u01/app/oracle/fra/ORADB/
+
+4. trace alart log file location </br>
+/u01/app/oracle/diag/rdbms/oradb/oradb/trace/
