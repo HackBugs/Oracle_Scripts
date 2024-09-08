@@ -89,6 +89,9 @@ Ensure that the report was successfully generated and that there were no errors 
 -- Control File Location
 
 ```sh
+SET LINESIZE 150;
+SET PAGESIZE 100;
+
 SELECT 'Control File Location:' AS Description, name AS File_Location
 FROM v$controlfile;
 
@@ -108,5 +111,42 @@ FROM v$archived_log;
 SELECT 'Parameter File Location:' AS Description, value AS Parameter_File_Location
 FROM v$parameter
 WHERE name = 'spfile';
+```
+<hr>
+
+```sh
+SET LINESIZE 150;
+SET PAGESIZE 100;
+
+-- Control File Location
+SELECT 'Control File' AS File_Type, name AS File_Location
+FROM v$controlfile
+UNION ALL
+
+-- Data File Locations
+SELECT 'Data File' AS File_Type, file_name AS File_Location
+FROM dba_data_files
+UNION ALL
+
+-- Redo Log File Locations
+SELECT 'Redo Log File' AS File_Type, member AS File_Location
+FROM v$logfile
+UNION ALL
+
+-- Archived Log File Locations
+SELECT 'Archived Log File' AS File_Type, name AS File_Location
+FROM v$archived_log
+WHERE name IS NOT NULL
+UNION ALL
+
+-- Parameter File (SPFILE) Location
+SELECT 'SPFILE' AS File_Type, value AS File_Location
+FROM v$parameter
+WHERE name = 'spfile';
+
+-- If using a PFILE instead of an SPFILE:
+SELECT 'PFILE' AS File_Type, value AS File_Location
+FROM v$parameter
+WHERE name = 'pfile';
 ```
 
