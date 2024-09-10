@@ -5,7 +5,9 @@
 
 mkdir -p /backup/oracle
 mkdir -p /backup/oracle/prod/adump
-
+    
+Oracle$ rman target /
+    
 rman target=/ nocatalog <<EOF
 run {
     sql "alter system archive log current";
@@ -16,3 +18,7 @@ run {
 }
 exit;
 EOF
+
+## copy backup data on standby
+
+rman - duplicate target database for standby nofilenamecheck;
