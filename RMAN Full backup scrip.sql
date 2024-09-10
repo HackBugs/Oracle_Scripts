@@ -1,5 +1,8 @@
 ## RMAN Script to backup primary database for standby
 
+    CMD - mkdir -p /backup/oracle
+    CMD - chown -Rf oracle:oinstall /backup/
+
 mkdir -p /backup/oracle
 mkdir -p /backup/oracle/prod/adump
 
