@@ -54,6 +54,7 @@ Use the following commands based on your operating system to search for the file
   Use the `find` command to search for the report by its name:
 
   ```bash
+  find / -name "db.sql" 2>/dev/null
   find / -name "awr_new_test_report.html" 2>/dev/null
   ```
 
